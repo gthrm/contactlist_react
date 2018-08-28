@@ -19,7 +19,6 @@ export function getContact(id) {
 };
 
 export function createContact(data) {
-    console.log(data);
     const contact = new Contact({
         name: data.name,
         num: data.num,
@@ -34,7 +33,16 @@ export function createContact(data) {
 };
 
 export function updateContact(params) {
-    console.log(params);
+    let upContact = {
+        name: params.body.name,
+        num: params.body.num,
+        workNum: params.body.workNum,
+        email: params.body.email,
+        born: params.body.born,
+        text: params.body.text,
+        createdAt: new Date()
+    };
+    return Contact.findByIdAndUpdate(params.params.id, {$set: upContact}, { new: true });
 };
 
 export function deleteContact(id) {

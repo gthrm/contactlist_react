@@ -19,12 +19,10 @@ app.get('/contacts', (req, res) => {
 })
 
 app.get('/contacts/:id', (req, res) => {
-    // console.log('req.params.id - ', req.params.id)
     db.getContact(req.params.id).then(data => res.send(data))
 })
 
 app.post('/contacts', (req, res) => {
-    console.log('---', req.body)
     db.createContact(req.body).then(data => res.send(data))
 })
 
