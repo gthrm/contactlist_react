@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+    font-family: 'Regular' !important; 
+    font-weight: 300 !important; 
+    font-size: 19px !important; 
+}
+
+#mount-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url(fonts/MegaFonGraphikLC-Bold-Web.woff2);
+    src: local(MegaFonGraphikLC-Bold-Web), url(fonts/MegaFonGraphikLC-Bold-Web.woff2);
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@font-face {
+    font-family: 'Regular';
+    src: url(fonts/MegaFonGraphikLC-Regular-Web.woff2);
+    src: local(MegaFonGraphikLC-Regular-Web), url(fonts/MegaFonGraphikLC-Regular-Web.woff2);
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@font-face {
+    font-family: 'Semibold';
+    src: url(fonts/MegaFonGraphikLC-Semibold-Web.woff2);
+    src: local(MegaFonGraphikLC-Semibold-Web), url(fonts/MegaFonGraphikLC-Semibold-Web.woff2);
+    font-style: normal; 
+    font-weight: normal; 
+}
