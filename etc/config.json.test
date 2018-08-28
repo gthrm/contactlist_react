@@ -1,0 +1,11 @@
+{
+    "apiPrefix": "http://localhost:8080",
+    "serverPort": "8080",
+    "db": {
+        "username": "",
+        "pass": "",
+        "host": "ds235352.mlab.com",
+        "port": "35352",
+        "name": "contact"
+    }
+}
