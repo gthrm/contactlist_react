@@ -10,7 +10,7 @@ const ContactList  = React.createClass({
     render() {
         const masonryOptions = {
             itemSelector: '.Note',
-            columnWidth: 250,
+            columnWidth: 300,
             gutter: 10,
             isFitWidth: true
         }

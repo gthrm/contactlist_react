@@ -12,7 +12,8 @@ import './App.css'
 function getStateFromFlux() {
     return {
         isLoading: ContactStore.isLoading(),
-        contacts: ContactStore.getContacts()
+        contacts: ContactStore.getContacts(),
+        visible: false 
     }
 }
 
@@ -54,11 +55,16 @@ const App = React.createClass({
         ContactActions.deleteContact(contact.id)
     },
 
+    handlePushNewContact() {
+        console.log('****  handlePushNewContact ****')
+        ContactActions.pushNewContact()
+    },
+
     render() {
         return (
             <div className="App">
                 <ContactHeader />
-                <ContactEditor onContactAdd={this.handleContactAdd} />
+                <ContactEditor onContactAdd={this.handleContactAdd} onVisible={this.handlePushNewContact}/>
                 <ContactList contacts={this.state.contacts} onContactDelete={this.handleContactDelete} onContactLoad={this.handleContactLoad}/>
             </div>
         )
