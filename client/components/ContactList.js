@@ -1,11 +1,43 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class ContactList extends Component{
+import Contact from './Contact.js'
+
+import Masonry from 'react-masonry-component'
+
+import './ContactList.less'
+
+const ContactList  = React.createClass({
     render() {
-        return(
-            <h1> ContactList </h1>
+        const masonryOptions = {
+            itemSelector: '.Note',
+            columnWidth: 250,
+            gutter: 10,
+            isFitWidth: true
+        }
+
+        console.log('--- this.props--- ', this.props)
+
+        return (
+            <Masonry
+                className="ContactList"
+                options={masonryOptions}
+            >
+            {
+                this.props.contacts.map(contact =>
+                        <Contact
+                            key={contact.id}
+                            name={contact.name}
+                            onDelete={this.props.onContactDelete.bind(null, contact)}
+                            onOpen={this.props.onContactLoad.bind(null, contact)}
+                        >
+                            {contact}
+                        </Contact>
+                )
+            }
+
+            </Masonry>
         )  
     }
-}
+})
 
 export default ContactList

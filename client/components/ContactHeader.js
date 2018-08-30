@@ -2,7 +2,18 @@ import React, {Component} from 'react'
 
 import './ContactHeader.css'
 
-class ContactHeader extends Component{
+const ContactHeader  = React.createClass({
+
+    getInitialState() {
+        return {
+            visible: false
+        }
+    },
+
+    handleClick() {
+        console.log('***** visible ', this.state.visible)
+        this.setState({visible: !this.state.visible})
+    },
 
     render() {
         return (
@@ -10,20 +21,13 @@ class ContactHeader extends Component{
                 <div className="mh-topbar__inside">
                     <ul className="mh-menu">
                         <li className="mh-menu-item" >
-                            <a className="mh-menu-item__link" onClick={this.clicked} >Контакты</a>
-                        </li>
-                        <li className="mh-menu-item" >
-                            <a className="mh-menu-item__link" onClick={this.clicked} >Добавить контакт</a>
+                            <a className="mh-menu-item__link" onClick={this.handleClick} >Добавить контакт</a>
                         </li>
                     </ul>
                 </div>
             </div>
         )
-    }
-
-    clicked(data) {
-        console.log(this)
-    }
-}
+    },
+})
 
 export default ContactHeader
