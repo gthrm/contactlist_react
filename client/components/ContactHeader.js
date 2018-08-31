@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import ViewAction from '../actions/ViewActions.js'
+
 import './ContactHeader.css'
 
 const ContactHeader  = React.createClass({
@@ -10,9 +12,9 @@ const ContactHeader  = React.createClass({
         }
     },
 
-    handleClick() {
-        console.log('***** visible ', this.state.visible)
-        this.setState({visible: !this.state.visible})
+    handleOpenEditor() {
+        const isOpenE = this.state.visible
+        this.props.isOpen(isOpenE)
     },
 
     render() {
@@ -21,7 +23,7 @@ const ContactHeader  = React.createClass({
                 <div className="mh-topbar__inside">
                     <ul className="mh-menu">
                         <li className="mh-menu-item" >
-                            <a className="mh-menu-item__link" onClick={this.handleClick} >Добавить контакт</a>
+                            <a className="mh-menu-item__link" onClick={this.handleOpenEditor} >Добавить контакт</a>
                         </li>
                     </ul>
                 </div>

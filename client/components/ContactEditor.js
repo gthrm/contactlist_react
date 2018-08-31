@@ -52,6 +52,8 @@ const ContactEditor = React.createClass({
         this.setState( {name: '', num: '', workNum: '', email: '', born: '', text: ''} )
     },
 
+    
+
     render() {
         return (
             <div className="ContactEditor">

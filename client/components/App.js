@@ -2,6 +2,7 @@ import React from 'react'
 
 import ContactStore from '../stores/contactStore.js'
 import ContactActions from '../actions/ContactActions.js'
+import ViewActions from '../actions/ViewActions.js'
 
 import ContactHeader from './ContactHeader.js'
 import ContactEditor from './ContactEditor.js'
@@ -13,14 +14,16 @@ function getStateFromFlux() {
     return {
         isLoading: ContactStore.isLoading(),
         contacts: ContactStore.getContacts(),
-        visible: false 
+        isOpen: false,
     }
 }
 
 const App = React.createClass({
     
     getInitialState() {
-        return getStateFromFlux()
+        return (
+            getStateFromFlux()
+        )
     },
 
     componentWillMount() {
@@ -55,17 +58,19 @@ const App = React.createClass({
         ContactActions.deleteContact(contact.id)
     },
 
-    handlePushNewContact() {
-        console.log('****  handlePushNewContact ****')
-        ContactActions.pushNewContact()
+    handleOpenEditor() {
+        console.log('вот тут ', this.state.isOpen)
+        this.setState({isOpen: !this.state.isOpen})
+        return this.state.isOpen
     },
 
     render() {
+        const isOpen = this.state.isOpen
         return (
             <div className="App">
-                <ContactHeader />
-                <ContactEditor onContactAdd={this.handleContactAdd} onVisible={this.handlePushNewContact}/>
-                <ContactList contacts={this.state.contacts} onContactDelete={this.handleContactDelete} onContactLoad={this.handleContactLoad}/>
+                <ContactHeader isOpen={this.handleOpenEditor} />
+                {(isOpen)?<ContactEditor onContactAdd={this.handleContactAdd} />:null}
+                <ContactList contacts={this.state.contacts} onContactDelete={this.handleContactDelete} onContactLoad={this.handleContactLoad} />
             </div>
         )
     },
