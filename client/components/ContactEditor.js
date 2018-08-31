@@ -15,10 +15,7 @@ const ContactEditor = React.createClass({
     },
 
     componentDidMount() {
-        $(function(){
-            $("#tel").mask("+7 (999) 999-99-99");
-            $("#tel1").mask("+7 (999) 999-99-99");
-          })
+        
     },
 
     handleNameChange(event) {
