@@ -14,6 +14,13 @@ const ContactEditor = React.createClass({
         }
     },
 
+    componentDidMount() {
+        $(function(){
+            $("#tel").mask("+7 (999) 999-99-99");
+            $("#tel1").mask("+7 (999) 999-99-99");
+          })
+    },
+
     handleNameChange(event) {
         this.setState( {name: event.target.value})
     },
@@ -65,6 +72,7 @@ const ContactEditor = React.createClass({
                     onChange={this.handleNameChange}
                 />
                 <input
+                    id="tel"
                     type="tel"
                     className="ContactEditor__input"
                     placeholder="Введиде личный телефон"
@@ -72,6 +80,7 @@ const ContactEditor = React.createClass({
                     onChange={this.handleNumChange}
                 />
                 <input
+                    id="tel1"
                     type="tel"
                     className="ContactEditor__input"
                     placeholder="Введиде work телефон"
